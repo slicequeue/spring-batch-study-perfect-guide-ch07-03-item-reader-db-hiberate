@@ -48,9 +48,12 @@ public class HibernateCursorJob {
             @Value("#{jobParameters['city']}") String city) {
         return new HibernateCursorItemReaderBuilder<Customer>()
                 .name("customerHibernateCursorItemReader")
-                .sessionFactory(entityManagerFactory.unwrap(SessionFactory.class))
-                .queryString("from Customer where city = :city") // 스프링 구성에 추가하는 HQL 쿼리
-                .parameterValues(Collections.singletonMap("city", city))
+                .sessionFactory(entityManagerFactory.unwrap(SessionFactory.class))  // 아이템 리더에 사용할 세션 팩토리 설정
+                .queryString("from Customer where city = :city")                    // 하이버네이트 쿼리 옵션1: 스프링 구성에 추가하는 HQL 쿼리
+//                .queryName(...)       // 하이버네이트 쿼리 옵션2: 하이버네이트 구성에 포함된 네임드 하이버네이트 쿼리를 참조함
+//                .queryProvider(...)   // 하이버네이트 쿼리 옵션3: 하이버네이트 쿼리(HQL)를 프로그래밍으로 빌드하는 기능 제공
+//                .nativeQuery(...)     // 하이버네이트 쿼리 옵션4: 네이티브 SQL 쿼리를 실행한 뒤 결과를 하이버네티으로 매핑하는데 사용
+                .parameterValues(Collections.singletonMap("city", city))            // 파라매터 맵핑
                 .build();
     }
 
