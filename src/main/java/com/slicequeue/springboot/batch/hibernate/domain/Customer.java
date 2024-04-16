@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// 하이버네이트 사용시 도메인 객체를 관계형 데이터와 매핑하는 것을 간소화
+// 그 외에도 레거시에 매핑이 이미 존재하는 상황에서는 배치 처리 개발 속도를 향상 시킬 수 있음
 @Entity
 @Table(name = "Customer")
 public class Customer {
