@@ -24,8 +24,8 @@ import org.springframework.context.annotation.Bean;
 import javax.persistence.EntityManagerFactory;
 import java.util.Collections;
 
-@EnableBatchProcessing
-@SpringBootApplication
+//@EnableBatchProcessing
+//@SpringBootApplication
 public class HibernatePagingJob {
 
     @Autowired
@@ -56,6 +56,7 @@ public class HibernatePagingJob {
 //                .queryProvider(...)   // 하이버네이트 쿼리 옵션3: 하이버네이트 쿼리(HQL)를 프로그래밍으로 빌드하는 기능 제공
 //                .nativeQuery(...)     // 하이버네이트 쿼리 옵션4: 네이티브 SQL 쿼리를 실행한 뒤 결과를 하이버네티으로 매핑하는데 사용
                 .parameterValues(Collections.singletonMap("city", city))
+                .pageSize(5)
                 .build();
     }
 

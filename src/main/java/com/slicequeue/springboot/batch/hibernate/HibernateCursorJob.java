@@ -23,8 +23,8 @@ import org.springframework.context.annotation.Bean;
 import javax.persistence.EntityManagerFactory;
 import java.util.Collections;
 
-//@EnableBatchProcessing
-//@SpringBootApplication
+@EnableBatchProcessing
+@SpringBootApplication
 public class HibernateCursorJob {
 
 	@Autowired
@@ -81,6 +81,6 @@ public class HibernateCursorJob {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(HibernateCursorJob.class, "city=Chicago");
+        SpringApplication.run(HibernateCursorJob.class, "city=Springfield");
     }
 }
