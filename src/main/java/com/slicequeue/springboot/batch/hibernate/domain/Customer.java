@@ -18,7 +18,7 @@ public class Customer {
 
     @Column(name = "middleInitial")
     private String middleInitial;
-
+    @Column(name = "lastName")
     private String lastName;
     private String address;
     private String city;
